@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.API" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.API" parent="Base.Theme.API" />
+
+    <style name="Login_Card_view_Custom" parent="">
+                <item name="cornerFamily">rounded</item>
+                <item name="cornerSizeTopLeft">@dimen/_21sdp</item>
+                <item name="cornerSizeTopRight">@dimen/_21sdp</item>
+                <item name="cornerSizeBottomLeft">0dp</item>
+                <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+    <style name="Login_Card_view_Style" parent="Widget.MaterialComponents.CardView">
+        <item name="shapeAppearance"> @style/Login_Card_view_Custom</item>
+
+    </style>
+</resources>

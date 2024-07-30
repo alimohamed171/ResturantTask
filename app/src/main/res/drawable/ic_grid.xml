@@ -1,0 +1,24 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+  <group>
+    <!-- First row of circles -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M5,5A2,2 0 0,1 9,5A2,2 0 0,1 5,9A1,2 0 0,1 5,5"/>
+    <path
+        android:fillColor="#000000"
+        android:pathData="M12,5A2,2 0 0,1 16,5A2,2 0 0,1 12,9A2,2 0 0,1 12,5"/>
+
+    <!-- Second row of circles -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M5,12A2,2 0 0,1 9,12A2,2 0 0,1 5,16A2,2 0 0,1 5,12"/>
+    <path
+        android:fillColor="#000000"
+        android:pathData="M12,12A2,2 0 0,1 16,12A2,2 0 0,1 12,16A2,2 0 0,1 12,12"/>
+
+   </group>
+</vector>
