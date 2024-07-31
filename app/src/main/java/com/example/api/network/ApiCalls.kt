@@ -1,6 +1,7 @@
 package com.example.api.network
 
 import com.example.api.model.ModelCategories
+import com.example.api.model.ModelPhone
 import com.example.api.model.ModelProduct
 import com.example.api.model.ModelProductDetails
 import retrofit2.Response
@@ -13,6 +14,10 @@ interface ApiCalls {
     @GET("categories.php")
     suspend fun getAllCategories()
             : ModelCategories
+
+    @GET("settings.php")
+    suspend fun getPhoneNumber()
+            : ModelPhone
 
     @GET("products.php")
     suspend fun getMeals(): ModelProduct

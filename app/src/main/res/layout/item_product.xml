@@ -7,7 +7,7 @@
     android:background="@drawable/item_background"
     android:padding="8dp"
     android:layout_marginBottom="10dp"
-    android:layout_marginEnd="12dp">
+    android:layout_marginEnd="10dp">
 
 <!--    &lt;!&ndash; Pizza Image &ndash;&gt;-->
 <!--    <ImageView-->

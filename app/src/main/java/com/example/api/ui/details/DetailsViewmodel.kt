@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.api.model.Data
+import com.example.api.model.PhoneData
 import com.example.api.model.ProductDetailsData
 import com.example.api.repository.Repo
 import com.example.api.utill.Resource
@@ -23,6 +24,25 @@ class DetailsViewmodel @Inject constructor(
 
     val mutableMealLiveData get() = _mutableMealLiveData
 
+
+    private val _mutablePhoneLiveData =  MutableLiveData<Resource<PhoneData?>>()
+    val mutablePhoneLiveData get() = _mutablePhoneLiveData
+    fun getPhoneNumber(){
+        viewModelScope.launch (Dispatchers.IO){
+            try {
+                val response = repo.getPhoneNumber()
+                if (response.status){
+                    _mutablePhoneLiveData.postValue(Resource.Success(response.data))
+                }else{
+                    _mutablePhoneLiveData.postValue(Resource.Error("error in apis"))
+                }
+            }catch (e: Exception){
+                _mutablePhoneLiveData.postValue(Resource.Error("An error occurred: ${e.message}"))
+            }
+        }
+    }
+
+
     fun getMealDetails(id:Int){
         viewModelScope.launch (Dispatchers.IO){
             try {
@@ -37,5 +57,4 @@ class DetailsViewmodel @Inject constructor(
             }
         }
     }
-
 }

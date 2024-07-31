@@ -1,5 +1,8 @@
 package com.example.api.ui.details
 
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.util.Patterns
 import androidx.fragment.app.Fragment
@@ -13,6 +16,8 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.api.R
 import com.example.api.databinding.FragmentDetailsBinding
+import com.example.api.model.ModelPhone
+import com.example.api.model.PhoneData
 import com.example.api.model.ProductDetailsData
 import com.example.api.ui.home.HomeViewModel
 import com.example.api.utill.Resource
@@ -26,6 +31,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
     private val binding get() = _binding!!
     private val args: DetailsFragmentArgs by navArgs()
     val viewModel : DetailsViewmodel by viewModels()
+    lateinit var phone: PhoneData
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -40,9 +46,56 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
         binding.btnBack.setOnClickListener{
             findNavController().navigateUp()
         }
+        binding.imageButton2.setOnClickListener {
+            openDialer(phone.phone)
+        }
+        binding.imageButton.setOnClickListener {
+            openWhatsApp(phone.whatsapp)
+        }
     }
 
     private fun observe(id : Int) {
+
+        getMealDetails(id)
+        getPhone()
+    }
+
+    private fun getPhone() {
+        viewModel.getPhoneNumber()
+        viewModel.mutablePhoneLiveData.observe(viewLifecycleOwner){ response ->
+            when(response){
+                is Resource.Error -> {
+                    showToast("fail")
+                }
+                is Resource.Success -> {
+                    response.data?.let {data ->
+                     phone = data
+                    }
+                }
+            }
+        }
+
+    }
+
+
+    private fun openDialer(phoneNumber: String) {
+        val dialIntent = Intent(Intent.ACTION_DIAL)
+        dialIntent.data = Uri.parse("tel:$phoneNumber")
+        startActivity(dialIntent)
+    }
+    private fun openWhatsApp(phoneNumber: String) {
+        val uri = Uri.parse("https://wa.me/$phoneNumber")
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        intent.setPackage("com.whatsapp")
+        try {
+            startActivity(intent)
+        } catch (e: Exception) {
+            // Handle exception if WhatsApp is not installed
+            e.printStackTrace()
+        }
+    }
+
+    private fun getMealDetails(id: Int) {
         viewModel.getMealDetails(id)
         viewModel.mutableMealLiveData.observe(viewLifecycleOwner){ response ->
             when(response){
@@ -57,7 +110,9 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
             }
 
         }
+
     }
+
 
     private fun setupUI(meal:ProductDetailsData) {
 

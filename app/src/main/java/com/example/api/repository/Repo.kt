@@ -11,6 +11,9 @@ class Repo  @Inject constructor(
         api.getMeals()
     suspend fun getCategories() =
         api.getAllCategories()
+
+    suspend fun getPhoneNumber() =
+        api.getPhoneNumber()
     suspend fun getMealsDetails(id:Int) =
         api.getMealsDetails(id)
 }
