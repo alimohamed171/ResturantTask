@@ -7,15 +7,19 @@
 
     <style name="Theme.API" parent="Base.Theme.API" />
 
-    <style name="Login_Card_view_Custom" parent="">
+    <style name="Card_view_Custom" parent="">
                 <item name="cornerFamily">rounded</item>
                 <item name="cornerSizeTopLeft">@dimen/_21sdp</item>
                 <item name="cornerSizeTopRight">@dimen/_21sdp</item>
                 <item name="cornerSizeBottomLeft">0dp</item>
                 <item name="cornerSizeBottomRight">0dp</item>
     </style>
-    <style name="Login_Card_view_Style" parent="Widget.MaterialComponents.CardView">
-        <item name="shapeAppearance"> @style/Login_Card_view_Custom</item>
-
+    <style name="Card_view_Style" parent="Widget.MaterialComponents.CardView">
+        <item name="shapeAppearance"> @style/Card_view_Custom</item>
     </style>
+    <style name="ShapeAppearanceOverlay.App.RoundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/_16sdp</item>
+    </style>
+
 </resources>

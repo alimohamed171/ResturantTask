@@ -49,11 +49,13 @@
 
     <ImageView
         android:id="@+id/details_image"
-        android:layout_width="178dp"
-        android:layout_height="178dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_margin="4dp"
         android:scaleType="centerCrop"
 
+        app:layout_constraintWidth_percent="0.50"
+        app:layout_constraintHeight_percent="0.25"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,10 +64,9 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView2"
-        style="@style/Login_Card_view_Style"
+        style="@style/Card_view_Style"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +75,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/_16sdp">
+            android:padding="@dimen/_8sdp">
 
             <TextView
                 android:id="@+id/details_name"
@@ -83,6 +84,7 @@
                 android:maxWidth="@dimen/_21sdp"
                 tools:text="Maison Thomas Pizza"
                 android:textSize="21sp"
+                android:layout_marginStart="@dimen/_8sdp"
                 app:layout_constraintEnd_toStartOf="@+id/guideline5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -95,7 +97,7 @@
                 tools:text="100 Egp"
                 android:textColor="#3F3F6F"
                 android:textSize="21sp"
-                android:layout_margin="@dimen/_4sdp"
+                android:layout_margin="@dimen/_8sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -106,6 +108,7 @@
                 tools:text="15.00"
                 android:textSize="21sp"
                 android:layout_margin="@dimen/_4sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
                 app:layout_constraintEnd_toEndOf="@+id/details_discounted_price"
                 app:layout_constraintStart_toStartOf="@+id/details_discounted_price"
                 app:layout_constraintTop_toBottomOf="@+id/details_discounted_price" />
@@ -132,6 +135,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_8sdp"
                 android:text="text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard"
                 android:textColor="#7F7F7F"
                 android:textSize="@dimen/_16sdp"
@@ -144,6 +148,8 @@
                 style="?android:attr/ratingBarStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+
                 android:layout_marginTop="@dimen/_10sdp"
                 android:isIndicator="true"
                 android:numStars="5"
@@ -167,7 +173,8 @@
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_8sdp"
                 android:src="@drawable/ellipse_in_details"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/view2" />
@@ -184,15 +191,17 @@
                 app:layout_constraintStart_toEndOf="@+id/imageView3"
                 app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
+
             <ImageButton
                 android:id="@+id/imageButton"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_8sdp"
                 android:background="@drawable/rectangle_green"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/guideline5"
-                app:layout_constraintStart_toStartOf="parent" />
-
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent="0.45"/>
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -213,15 +222,18 @@
                 app:layout_constraintTop_toTopOf="@+id/imageButton"
                 />
 
+
+
             <ImageButton
                 android:id="@+id/imageButton2"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
                 android:background="@drawable/rectangle_burble"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline5" />
-
+                app:layout_constraintStart_toStartOf="@+id/guideline5"
+                app:layout_constraintWidth_percent="0.45"/>
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
@@ -231,7 +243,6 @@
                 app:layout_constraintBottom_toBottomOf="@id/imageButton2"
                 app:layout_constraintStart_toStartOf="@+id/imageButton2"
                 app:layout_constraintTop_toTopOf="@+id/imageButton2" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

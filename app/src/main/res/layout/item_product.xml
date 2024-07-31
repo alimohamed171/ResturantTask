@@ -1,24 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="175dp"
-    android:layout_height="246dp"
+    android:layout_width="wrap_content"
+    android:layout_height="226dp"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/item_background"
     android:padding="8dp"
-    android:layout_marginBottom="8dp">
+    android:layout_marginBottom="10dp"
+    android:layout_marginEnd="12dp">
 
-    <!-- Pizza Image -->
-    <ImageView
+<!--    &lt;!&ndash; Pizza Image &ndash;&gt;-->
+<!--    <ImageView-->
+<!--        android:id="@+id/item_image"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        tools:src="@drawable/product"-->
+<!--        android:layout_margin="4dp"-->
+<!--        android:background="@drawable/rounded_corners"-->
+
+<!--        app:layout_constraintEnd_toStartOf="@id/bookmark_icon"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintWidth_percent="0.75"/>-->
+
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/item_image"
         android:layout_width="0dp"
         android:layout_height="100dp"
-        android:scaleType="centerCrop"
-        tools:src="@drawable/product"
         android:layout_margin="4dp"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toStartOf="@id/bookmark_icon"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.75"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.RoundedImageView"
+        tools:src="@drawable/product" />
+
 
     <!-- Bookmark Icon -->
     <ImageView
@@ -28,17 +46,18 @@
         android:src="@drawable/vector"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="4dp"/>
+        app:layout_constraintStart_toEndOf="@id/item_image"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="4dp"/>
 
     <!-- Item Name -->
     <TextView
         android:id="@+id/item_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="8dp"
         android:text="Maison Thomas Pizza"
         android:textSize="21sp"
-        android:maxWidth="@dimen/_21sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/item_image" />
@@ -48,14 +67,16 @@
         style="?android:attr/ratingBarStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
         android:isIndicator="true"
         android:numStars="5"
         android:progressTint="#FF8A00"
         android:rating="3.5"
         android:stepSize="0"
+        app:layout_constraintBottom_toTopOf="@id/item_discounted_price"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/item_discounted_price" />
+        app:layout_constraintTop_toBottomOf="@+id/item_name" />
 
 
 
@@ -66,7 +87,7 @@
         android:text="100 Egp"
         android:textColor="#3F3F6F"
         android:textSize="21sp"
-        android:layout_marginBottom="6dp"
+        android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
