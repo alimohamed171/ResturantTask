@@ -8,7 +8,7 @@
         android:id="@+id/text_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/item_tab_background"
+        android:background="@drawable/ic_rectangle_embty"
         android:paddingHorizontal="@dimen/_15sdp"
         android:paddingVertical="@dimen/_5sdp"
         android:text="Pizaa"
@@ -18,7 +18,7 @@
         android:maxWidth="128dp"
         android:minWidth="96dp"
         android:textColor="@color/white"
-        android:textSize="@dimen/_12ssp"
+        android:textSize="@dimen/_16ssp"
         android:layout_marginEnd="@dimen/_5sdp" />
 
 

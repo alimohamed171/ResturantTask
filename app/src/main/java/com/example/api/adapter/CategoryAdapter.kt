@@ -27,10 +27,10 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>
 
             // Update background based on isChecked state
             if (position == selectedPosition) {
-                productTitle.setBackgroundResource(R.drawable.ic_rectangle_embty)
+                productTitle.setBackgroundResource(R.drawable.item_tab_background)
                 isChecked = true
             } else {
-                productTitle.setBackgroundResource(R.drawable.item_tab_background)
+                productTitle.setBackgroundResource(R.drawable.ic_rectangle_embty)
                 isChecked = false
             }
 
