@@ -29,7 +29,7 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/group"
+        android:src="@drawable/ic_groub_purble"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
@@ -37,13 +37,13 @@
         android:id="@+id/circle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ellipse"
+        android:src="@drawable/ic_circle_purble"
         app:layout_constraintEnd_toEndOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/baseline_search_24"
+        android:src="@drawable/ic_search_magnifying_glass"
         app:layout_constraintStart_toStartOf="@id/circle"
         app:layout_constraintEnd_toEndOf="@+id/circle"
         app:layout_constraintTop_toTopOf="@+id/circle"

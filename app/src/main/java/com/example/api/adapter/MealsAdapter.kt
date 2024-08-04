@@ -21,10 +21,11 @@ class MealsAdapter() : RecyclerView.Adapter<MealsAdapter.MealViewHolder>(){
 
         private val productTitle: TextView = itemView.findViewById(R.id.item_name)
         private val productImage: ImageView = itemView.findViewById(R.id.item_image)
+        private val productSaveImage: ImageView = itemView.findViewById(R.id.bookmark_icon)
         private val productRatingBar: RatingBar = itemView.findViewById(R.id.item_rating)
         private val productPrice: TextView = itemView.findViewById(R.id.item_discounted_price)
         private val productOriginalPrice: TextView = itemView.findViewById(R.id.item_original_price)
-
+        var isChecked:Boolean=false
         fun bind(data: Data) {
             val price =  data.price.toFloat() - data.discount.toFloat()
 
@@ -39,6 +40,19 @@ class MealsAdapter() : RecyclerView.Adapter<MealsAdapter.MealViewHolder>(){
             itemView.setOnClickListener {
                 onItemClickListener?.let {
                     it(data)
+                }
+            }
+            productSaveImage.setOnClickListener {
+                onSaveClickListener?.let {
+                    if (!isChecked){
+                        productSaveImage.setImageResource(R.drawable.ic_icon_book_mark_fill)
+                        isChecked = true
+                    }
+                    else{
+                        productSaveImage.setImageResource(R.drawable.ic_icon_book_burble)
+                        isChecked = false
+                    }
+
                 }
             }
         }
@@ -62,6 +76,12 @@ class MealsAdapter() : RecyclerView.Adapter<MealsAdapter.MealViewHolder>(){
 
     fun setOnItemClickListener(listener: (Data)->Unit){
         onItemClickListener = listener
+    }
+
+ private var onSaveClickListener: ((Data) -> Unit)? =null
+
+    fun setOnSaveClickListener(listener: (Data)->Unit){
+        onSaveClickListener = listener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealViewHolder {

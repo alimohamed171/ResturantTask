@@ -16,14 +16,44 @@ import com.example.api.model.Data
 
 class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(){
 
+    private var selectedPosition = RecyclerView.NO_POSITION
     inner class CategoryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
 
         private val productTitle: TextView = itemView.findViewById(R.id.text_type)
-
-        fun bind(data: CategoryData) {
+        var isChecked:Boolean=false
+        fun bind(data: CategoryData,position: Int) {
             productTitle.text = data.name
+
+            // Update background based on isChecked state
+            if (position == selectedPosition) {
+                productTitle.setBackgroundResource(R.drawable.ic_rectangle_embty)
+                isChecked = true
+            } else {
+                productTitle.setBackgroundResource(R.drawable.item_tab_background)
+                isChecked = false
+            }
+
             itemView.setOnClickListener {
+                // Update isChecked state and selected position
+                if (selectedPosition != adapterPosition) {
+                    val previousSelectedPosition = selectedPosition
+                    selectedPosition = adapterPosition
+                    notifyItemChanged(previousSelectedPosition)
+                    notifyItemChanged(selectedPosition)
+                    isChecked = true
+                } else {
+                    isChecked = !isChecked
+                    notifyItemChanged(adapterPosition)
+                }
+
+                // Update the background resource based on isChecked state
+                productTitle.setBackgroundResource(
+                    if (isChecked) R.drawable.ic_rectangle_embty
+                    else R.drawable.item_tab_background
+                )
+
+                // Call the click listener
                 onItemClickListener?.let {
                     it(data)
                 }
@@ -65,7 +95,7 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val category = differ.currentList[position]
 
-        holder.bind(category)
+        holder.bind(category,position)
     }
 
 }

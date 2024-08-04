@@ -39,7 +39,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailsFragment(it.id))
 
         }
+        mealsAdapter.setOnSaveClickListener {
+        }
         categoryAdapter = CategoryAdapter()
+        categoryAdapter.setOnItemClickListener {
+
+        }
         binding.rvProduct.apply {
             adapter = mealsAdapter
         }
