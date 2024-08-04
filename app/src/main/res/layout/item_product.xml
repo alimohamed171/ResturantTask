@@ -1,34 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="226dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/item_background"
     android:padding="8dp"
-    android:layout_marginBottom="10dp"
-    android:layout_marginEnd="10dp">
+    android:layout_margin="8dp">
 
-<!--    &lt;!&ndash; Pizza Image &ndash;&gt;-->
-<!--    <ImageView-->
-<!--        android:id="@+id/item_image"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="100dp"-->
-<!--        android:scaleType="centerCrop"-->
-<!--        tools:src="@drawable/product"-->
-<!--        android:layout_margin="4dp"-->
-<!--        android:background="@drawable/rounded_corners"-->
-
-<!--        app:layout_constraintEnd_toStartOf="@id/bookmark_icon"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintWidth_percent="0.75"/>-->
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/item_image"
         android:layout_width="0dp"
         android:layout_height="100dp"
-        android:layout_margin="4dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toStartOf="@id/bookmark_icon"
         app:layout_constraintStart_toStartOf="parent"
